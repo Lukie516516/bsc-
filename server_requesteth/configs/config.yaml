@@ -1,0 +1,43 @@
+server:
+  http:
+    addr: 0.0.0.0:8003
+    timeout: 3600s   # 单请求超时，长轮询接口可适当调大
+  grpc:
+    addr: 0.0.0.0:9003
+    timeout: 30s
+data:
+  database:
+    driver: mysql
+    source: root:password@tcp(127.0.0.1:3306)/game?parseTime=true
+  redis:
+    addr: 127.0.0.1:6379
+    read_timeout: 0.2s
+    write_timeout: 0.2s
+eth:
+  bsc:
+    addr: https://data-seed-prebsc-1-s3.binance.org:8545
+# 合约地址、RPC 优先从环境变量读取，见 docs/INTERFACES.md 第 4 节
+# ETH_NFT_CONTRACT, ETH_STAKE_CONTRACT, ETH_BSC_RPC_URLS 等
+
+# 铸造分佣（已禁用：需求改为仅二级市场出售分成；enabled: false 时 referral_worker 不处理）
+referral:
+  enabled: false     # false=禁用铸造分佣（出售分成在链上 Nft 合约完成）
+#  b_bps: 30         # B 推广者 0.3%
+#  d_bps: 20         # D 团队长 0.2%
+#  hold_min_usd: 300 # B 合格阈值 300 USDT
+
+# 盲盒结算 Worker 随机规则（可选）
+# blind_settle:
+#   win_rate_bps: 5000    # 胜率 50%
+#   profit_min_bps: 5000  # 盈利 50%~200% usdtPaid
+#   profit_max_bps: 20000
+#   loss_min_bps: 5000   # 亏损 50%~100% usdtPaid
+#   loss_max_bps: 10000
+#   chain_id: 56
+
+# 调仓脚本（可选）
+# rebalance:
+#   rebalance_bps: 9500   # 转出 95%（5% 留 staking）
+#   min_amount_usd: 100   # 余额≥100 USDT 才执行
+#   chain_id: 56
+#   interval_min: 60     # 每 60 分钟检查一次

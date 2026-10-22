@@ -1,0 +1,75 @@
+# 后台管理 API 实现说明
+
+## 新增 API
+
+### 1. 按日开盒利润统计
+
+**接口**: `GET /api/get_opened_box_profit_stats`
+
+**参数**:
+- `start` (uint64): 开始时间戳（秒）
+- `end` (uint64): 结束时间戳（秒）
+- `page` (int32): 页码，默认 1
+- `page_size` (int32): 每页条数，默认 20
+
+**返回**:
+- `total`: 总条数
+- `total_profit`: 时间段内利润总和（reward 代数和）
+- `profit_count`: 盈利盲盒数
+- `loss_count`: 亏损盲盒数
+- `list`: 明细列表，每项含 token_id、user_addr、reward、usdt_paid、block_time
+
+**数据来源**: `nft_opened` 表（仅 `check_status=1` 已结算记录），JOIN `nft_minted` 取 usdt_paid。
+
+---
+
+### 2. 手续费收入统计
+
+**接口**: `GET /api/get_fee_income_stats`
+
+**参数**:
+- `start` (uint64): 开始时间戳（秒）
+- `end` (uint64): 结束时间戳（秒）
+
+**返回**:
+- `fee_usdt_sum`: USDT 手续费总和
+- `fee_b_sum`: HRX 手续费总和
+- `count`: 交易笔数
+
+**数据来源**: `nft_market_purchase` 表（二级市场购买记录的 fee_usdt、fee_b）。
+
+---
+
+## 部署前需执行
+
+在 `requestEth` 目录下运行：
+
+```bash
+make api
+```
+
+用于从 `transaction.proto` 重新生成 Go 代码（含新 API 的 request/reply 类型及 HTTP 路由）。
+
+若无 `make`，可执行：
+
+```bash
+protoc --proto_path=./api --proto_path=./third_party \
+  --go_out=paths=source_relative:./api \
+  --go-http_out=paths=source_relative:./api \
+  --go-grpc_out=paths=source_relative:./api \
+  --openapi_out=fq_schema_naming=true,default_response=false:. \
+  $(find api -name '*.proto')
+```
+
+或使用项目 Docker 镜像中的 protoc 环境。
+
+---
+
+## 涉及文件
+
+| 文件 | 修改内容 |
+|------|----------|
+| `api/requestEth/v1/transaction.proto` | 新增 RPC 和 Message 定义 |
+| `internal/data/user.go` | GetNftOpenSumBySe, GetOpenedBoxListBySe, GetOpenedBoxProfitLossCountBySe, GetNftMarketPurchaseFeeSumBySe |
+| `internal/biz/app.go` | OpenedBoxWithMint 结构体，UserRepo 接口扩展，GetOpenedBoxProfitStats/GetFeeIncomeStats |
+| `internal/service/transaction.go` | GetOpenedBoxProfitStats, GetFeeIncomeStats 服务实现 |

@@ -1,0 +1,28 @@
+# Local secrets
+.env
+.env.*
+!.env.example
+!.env.gas.example
+
+# Dependency and build output
+node_modules/
+artifacts/
+cache/
+types/
+coverage/
+dist/
+bin/
+*.exe
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+*.log
+
+# IDE and OS files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+

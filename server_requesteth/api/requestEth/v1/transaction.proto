@@ -1,0 +1,956 @@
+syntax = "proto3";
+
+package api.requestEth.v1;
+
+import "google/api/annotations.proto";
+
+option go_package = "requestEth/api/requestEth/v1;v1";
+option java_multiple_files = true;
+option java_package = "dev.kratos.api.helloworld.v1";
+option java_outer_classname = "HelloworldProtoV1";
+
+service Transaction {
+  rpc SendTransaction (SendTransactionRequest) returns (SendTransactionReply) {
+    option (google.api.http) = {
+      post: "/api/transaction"
+      body: "send_body"
+    };
+  }
+
+  rpc SendTransactionEth (SendTransactionEthRequest) returns (SendTransactionEthReply) {
+    option (google.api.http) = {
+      post: "/api/transaction_eth"
+      body: "send_body"
+    };
+  }
+
+  rpc Transaction (TransactionRequest) returns (TransactionReply) {
+    option (google.api.http) = {
+      get: "/api/transaction/{tx}"
+    };
+  }
+
+  rpc EthBalance (EthBalanceRequest) returns (EthBalanceReply) {
+    option (google.api.http) = {
+      get: "/api/eth_balance"
+    };
+  }
+
+  rpc GenerateKey (GenerateKeyRequest) returns (GenerateKeyReply) {
+    option (google.api.http) = {
+      get: "/api/generate_key"
+    };
+  }
+
+  rpc TokenBalance (TokenBalanceRequest) returns (TokenBalanceReply) {
+    option (google.api.http) = {
+      get: "/api/usdt_balance"
+    };
+  }
+
+  rpc VerifySig (VerifySigRequest) returns (VerifySigReply) {
+    option (google.api.http) = {
+      get: "/api/verify_sig"
+    };
+  }
+
+  rpc GetReserves (GetReservesRequest) returns (GetReservesReply) {
+    option (google.api.http) = {
+      get: "/api/get_reserves"
+    };
+  }
+
+  rpc GetAll (GetAllRequest) returns (GetAllReply) {
+    option (google.api.http) = {
+      get: "/api/get_all"
+    };
+  }
+
+  rpc GetAllTwo (GetAllTwoRequest) returns (GetAllTwoReply) {
+    option (google.api.http) = {
+      get: "/api/get_all_two"
+    };
+  }
+
+  rpc GetArray (GetArrayRequest) returns (GetArrayReply) {
+    option (google.api.http) = {
+      get: "/api/get_array"
+    };
+  }
+
+  rpc GetLpByOrderId (GetLpByOrderIdRequest) returns (GetLpByOrderIdReply) {
+    option (google.api.http) = {
+      get: "/api/get_lp"
+    };
+  }
+
+  rpc GetBuyByOrderId (GetBuyByOrderIdRequest) returns (GetBuyByOrderIdReply) {
+    option (google.api.http) = {
+      get: "/api/get_buy"
+    };
+  }
+
+  rpc GetUserLp (GetUserLpRequest) returns (GetUserLpReply) {
+    option (google.api.http) = {
+      get: "/api/get_user_lp"
+    };
+  }
+
+  rpc GetDailyFee (GetDailyFeeRequest) returns (GetDailyFeeReply) {
+    option (google.api.http) = {
+      get: "/api/get_daily_fee"
+    };
+  }
+
+  rpc AddLiquidity (AddLiquidityRequest) returns (AddLiquidityReply) {
+    option (google.api.http) = {
+      post: "/api/add_liquidity"
+      body: "send_body"
+    };
+  }
+
+  rpc RemoveLiquidity (RemoveLiquidityRequest) returns (RemoveLiquidityReply) {
+    option (google.api.http) = {
+      post: "/api/remove_liquidity"
+      body: "send_body"
+    };
+  }
+
+  rpc BuyAICAT (BuyAICATRequest) returns (BuyAICATReply) {
+    option (google.api.http) = {
+      post: "/api/buy"
+      body: "send_body"
+    };
+  }
+
+  rpc WithdrawAICAT (WithdrawAICATRequest) returns (WithdrawAICATReply) {
+    option (google.api.http) = {
+      post: "/api/withdraw"
+      body: "send_body"
+    };
+  }
+
+  rpc SendAICAT (SendAICATRequest) returns (SendAICATReply) {
+    option (google.api.http) = {
+      post: "/api/send_aicat"
+      body: "send_body"
+    };
+  }
+
+  rpc GetBuyAICATByOrderId (GetBuyAICATByOrderIdRequest) returns (GetBuyAICATByOrderIdReply) {
+    option (google.api.http) = {
+      get: "/api/get_buy_aicat_by_order_id"
+    };
+  }
+
+  rpc AddWhite (AddWhiteRequest) returns (AddWhiteReply) {
+    option (google.api.http) = {
+      get: "/api/add_white"
+    };
+  }
+
+  rpc GetBoxAllLength (GetBoxAllRequest) returns (GetBoxAllReply) {
+    option (google.api.http) = {
+      get: "/api/get_box_all"
+    };
+  }
+
+  rpc GetBoxNew (GetBoxNewRequest) returns (GetBoxNewReply) {
+    option (google.api.http) = {
+      get: "/api/get_box_new"
+    };
+  }
+
+  rpc GetBoxOpen (GetBoxOpenRequest) returns (GetBoxOpenReply) {
+    option (google.api.http) = {
+      get: "/api/get_box_open"
+    };
+  }
+
+  rpc SetReward (SetRewardRequest) returns (SetRewardReply) {
+    option (google.api.http) = {
+      post: "/api/set_reward"
+      body: "send_body"
+    };
+  }
+
+  rpc SetRewardTwo (SetRewardRequest) returns (SetRewardReply) {
+    option (google.api.http) = {
+      post: "/api/set_reward_two"
+      body: "send_body"
+    };
+  }
+
+  rpc GetBoxRewardEvent (GetBoxRewardEventRequest) returns (GetBoxRewardEventReply) {
+    option (google.api.http) = {
+      get: "/api/get_box_reward_event"
+    };
+  }
+
+  rpc GetExchangeEvent (GetExchangeEventRequest) returns (GetExchangeEventReply) {
+    option (google.api.http) = {
+      get: "/api/get_exchange_event"
+    };
+  }
+
+  rpc GetBuyEvent (GetBuyEventRequest) returns (GetBuyEventReply) {
+    option (google.api.http) = {
+      get: "/api/get_buy_event"
+    };
+  }
+
+  rpc GetSellEvent (GetSellEventRequest) returns (GetSellEventReply) {
+    option (google.api.http) = {
+      get: "/api/get_sell_event"
+    };
+  }
+
+  rpc GetBoxBuyEvent (GetBoxBuyEventRequest) returns (GetBoxBuyEventReply) {
+    option (google.api.http) = {
+      get: "/api/get_box_buy_event"
+    };
+  }
+
+  rpc GetBoxMintEvent (GetBoxMintEventRequest) returns (GetBoxMintEventReply) {
+    option (google.api.http) = {
+      get: "/api/get_box_mint_event"
+    };
+  }
+
+  rpc GetBoxMintEventFix (GetBoxMintEventRequest) returns (GetBoxMintEventReply) {
+    option (google.api.http) = {
+      get: "/api/get_box_mint_event_fix"
+    };
+  }
+
+  rpc GetBoxListEvent (GetBoxListEventRequest) returns (GetBoxListEventReply) {
+    option (google.api.http) = {
+      get: "/api/get_box_list_event"
+    };
+  }
+
+  rpc GetBoxUnListEvent (GetBoxUnListEventRequest) returns (GetBoxUnListEventReply) {
+    option (google.api.http) = {
+      get: "/api/get_box_unlist_event"
+    };
+  }
+
+  rpc GetBoxOpenEvent (GetBoxOpenEventRequest) returns (GetBoxOpenEventReply) {
+    option (google.api.http) = {
+      get: "/api/get_box_open_event"
+    };
+  }
+
+  rpc GetBoxTransferEvent (GetBoxTransferEventRequest) returns (GetBoxTransferEventReply) {
+    option (google.api.http) = {
+      get: "/api/get_box_transfer_event"
+    };
+  }
+
+  rpc GetUserREvent (GetUserREventRequest) returns (GetUserREventReply) {
+    option (google.api.http) = {
+      get: "/api/get_user_r_event"
+    };
+  }
+
+  rpc GetExchangeList (GetExchangeListRequest) returns (GetExchangeListReply) {
+    option (google.api.http) = {
+      get: "/api/get_exchange_list"
+    };
+  }
+
+  rpc GetBuyList (GetBuyListRequest) returns (GetBuyListReply) {
+    option (google.api.http) = {
+      get: "/api/get_buy_list"
+    };
+  }
+
+  rpc GetRewardList (GetRewardListRequest) returns (GetRewardListReply) {
+    option (google.api.http) = {
+      get: "/api/get_reward_list"
+    };
+  }
+
+  rpc GetBuyBoxList (GetBuyBoxListRequest) returns (GetBuyBoxListReply) {
+    option (google.api.http) = {
+      get: "/api/get_buy_box_list"
+    };
+  }
+
+  rpc UpdateBox (UpdateBoxRequest) returns (UpdateBoxReply) {
+    option (google.api.http) = {
+      get: "/api/update_box"
+    };
+  }
+
+  rpc GetAddressBox (GetAddressBoxRequest) returns (GetAddressBoxReply) {
+    option (google.api.http) = {
+      get: "/api/get_address_box"
+    };
+  }
+
+  rpc GetSellBoxList (GetSellBoxListRequest) returns (GetSellBoxListReply) {
+    option (google.api.http) = {
+      get: "/api/get_sell_box_list"
+    };
+  }
+
+  rpc GetMarketList (GetMarketListRequest) returns (GetMarketListReply) {
+    option (google.api.http) = {
+      get: "/api/get_market_box_list"
+    };
+  }
+
+  rpc GetAllInfo (GetAllInfoRequest) returns (GetAllInfoReply) {
+    option (google.api.http) = {
+      get: "/api/get_all_info"
+    };
+  }
+
+  // 铸造分佣：查询待打款 / 批量打款
+  rpc ReferralListPending (ReferralListPendingRequest) returns (ReferralListPendingReply) {
+    option (google.api.http) = {
+      get: "/api/referral_pending"
+    };
+  }
+  rpc ReferralPayout (ReferralPayoutRequest) returns (ReferralPayoutReply) {
+    option (google.api.http) = {
+      post: "/api/referral_payout"
+      body: "send_body"
+    };
+  }
+
+  // 按日开盒利润统计：已开盲盒的利润明细与汇总（可筛选某天/时间段）
+  rpc GetOpenedBoxProfitStats (GetOpenedBoxProfitStatsRequest) returns (GetOpenedBoxProfitStatsReply) {
+    option (google.api.http) = {
+      get: "/api/get_opened_box_profit_stats"
+    };
+  }
+
+  // 手续费收入统计：二级市场交易手续费（USDT/HRX）按时间段汇总
+  rpc GetFeeIncomeStats (GetFeeIncomeStatsRequest) returns (GetFeeIncomeStatsReply) {
+    option (google.api.http) = {
+      get: "/api/get_fee_income_stats"
+    };
+  }
+}
+
+message GetReservesRequest {
+  string pair = 1;
+}
+
+message GetReservesReply {
+  string reservesOne = 1;
+  string reservesTwo = 2;
+}
+
+message GetAllRequest {
+}
+
+message GetAllReply {
+  string buyArrayLength = 1;
+  string reqLpArrayLength = 2;
+  string withdrawArrayLength = 3;
+}
+
+message GetAllTwoRequest {
+  string contract = 1;
+}
+
+message GetAllTwoReply {
+  string buyArrayLength = 1;
+}
+
+message GetArrayRequest {
+  string reqType = 1;
+  string contract = 4;
+  string start = 2;
+  string end = 3;
+}
+
+message GetArrayReply {
+  repeated List list = 1;
+  message List {
+    string orderId = 1;
+  }
+}
+
+message GetBoxAllRequest {
+
+}
+
+message GetBoxAllReply {
+  string newLength = 1;
+  string openLength = 2;
+}
+
+message GetBoxNewRequest {
+  string start = 2;
+  string end = 3;
+}
+
+message GetBoxNewReply {
+  repeated List list = 1;
+  message List {
+    string tokenId = 1;
+    string price = 2;
+    uint64 openedAt = 3;
+    uint64 mintAt = 4;
+    string reward = 5;
+    uint64 rewardAt = 6;
+  }
+}
+
+message GetBoxOpenRequest {
+  string start = 2;
+  string end = 3;
+}
+
+message GetBoxOpenReply {
+  repeated List list = 1;
+  message List {
+    string tokenId = 1;
+    string price = 2;
+    uint64 openedAt = 3;
+    uint64 mintAt = 4;
+    string reward = 5;
+    uint64 rewardAt = 6;
+  }
+}
+
+
+message GetBuyByOrderIdRequest {
+  string orderId = 1;
+  string contract = 2;
+}
+
+message GetBuyByOrderIdReply {
+  string usdtArray = 2; // 使用u
+  string catArray = 3; // 获得b
+}
+
+message GetLpByOrderIdRequest {
+  string orderId = 1;
+}
+
+message GetLpByOrderIdReply {
+  string lpArray = 1; // 添加时lp获得，移除时lp使用
+  string lpUsdtArray = 2; // 添加时使用u，移除时释放u,
+  string lpCatArray = 3; // 添加时使用b，移除时释放b,
+}
+
+message GetUserLpRequest {
+  string address = 1;
+}
+
+message GetUserLpReply {
+  string lpAmount = 1; // 用户此刻lp
+  string lpAmountTotal = 2; // 全局lp
+}
+
+message GetDailyFeeRequest {
+  string ts = 1;
+}
+
+message GetDailyFeeReply {
+  string ammount = 1;
+}
+
+message AddLiquidityRequest {
+  message SendBody{
+    string orderId = 1;
+    string user = 2;
+    string amountUsdt = 3;
+    string amountAicat = 4;
+  }
+
+  SendBody send_body = 1;
+}
+
+message AddLiquidityReply {
+  string res = 1;
+}
+
+message RemoveLiquidityRequest {
+  message SendBody{
+    string orderId = 1;
+    string user = 2;
+    string liquidityAmount = 3;
+  }
+
+  SendBody send_body = 1;
+}
+
+message RemoveLiquidityReply {
+  string res = 1;
+}
+
+message BuyAICATRequest {
+  message SendBody{
+    string orderId = 1;
+    string usdtAmount = 2;
+    string contract = 3;
+  }
+
+  SendBody send_body = 1;
+}
+
+message BuyAICATReply {
+  string res = 1;
+}
+
+message WithdrawAICATRequest {
+  message SendBody{
+    string token = 1;
+    string amount = 2;
+    string address = 3;
+    string contract = 4;
+  }
+
+  SendBody send_body = 1;
+}
+
+message WithdrawAICATReply {
+  string res = 1;
+}
+
+message SendAICATRequest {
+  message SendBody{
+  }
+
+  SendBody send_body = 1;
+}
+
+message SendAICATReply {
+  string res = 1;
+}
+
+message SetRewardRequest {
+  message SendBody{
+    string tokenId = 1;
+    string reward = 2;
+  }
+
+  SendBody send_body = 1;
+}
+
+message SetRewardReply {
+  string res = 1;
+}
+
+message GetBuyAICATByOrderIdRequest {
+  string orderId = 1;
+}
+
+message GetBuyAICATByOrderIdReply {
+  string amount = 3;
+}
+
+message AddWhiteRequest {
+}
+
+message AddWhiteReply {
+  string res = 1;
+}
+
+message VerifySigRequest {
+  string sign = 2;
+  string content = 1;
+}
+
+message VerifySigReply {
+  bool res = 1;
+  string address = 2;
+}
+
+message TokenBalanceRequest {
+  string token = 2;
+  string address = 1;
+}
+
+message TokenBalanceReply {
+  string balance = 1;
+  string err = 2;
+}
+
+message SendTransactionRequest {
+  message SendBody{
+    string privateKey = 1;
+    string toAddr = 2;
+    string token = 4;
+    string amount = 3;
+  }
+
+  SendBody send_body = 1;
+}
+
+message SendTransactionReply {
+  string tx = 1;
+  string err = 2;
+}
+
+message SendTransactionEthRequest {
+  message SendBody{
+    string privateKey = 1;
+    string toAddr = 2;
+    string amount = 3;
+  }
+
+  SendBody send_body = 1;
+}
+
+message SendTransactionEthReply {
+  string tx = 1;
+  string err = 2;
+}
+
+message EthBalanceRequest {
+  string address = 1;
+}
+
+message EthBalanceReply {
+  string balance = 1;
+  string err = 2;
+}
+
+
+message TransactionRequest {
+  string tx = 1;
+}
+
+message TransactionReply {
+  uint64 status = 1;
+}
+
+message GenerateKeyRequest {
+}
+
+message GenerateKeyReply {
+  string address = 1;
+  string privateKey = 2;
+  string err = 3;
+}
+
+message GetBoxRewardEventRequest {
+}
+
+message GetBoxRewardEventReply {
+}
+
+message GetExchangeEventRequest {
+}
+
+message GetExchangeEventReply {
+}
+
+message GetBuyEventRequest {
+}
+
+message GetBuyEventReply {
+}
+
+message GetSellEventRequest {
+}
+
+message GetSellEventReply {
+}
+
+message GetBoxBuyEventRequest {
+}
+
+message GetBoxBuyEventReply {
+}
+
+message GetBoxMintEventRequest {
+}
+
+message GetBoxMintEventReply {
+}
+
+message GetBoxListEventRequest {
+}
+
+message GetBoxListEventReply {
+}
+
+message GetBoxUnListEventRequest {
+}
+
+message GetBoxUnListEventReply {
+}
+
+message GetBoxOpenEventRequest {
+}
+
+message GetBoxOpenEventReply {
+}
+
+message GetBoxTransferEventRequest {
+}
+
+message GetBoxTransferEventReply {
+}
+
+message GetUserREventRequest {
+}
+
+message GetUserREventReply {
+}
+
+
+message GetExchangeListRequest {
+  uint64 start = 1;
+  uint64 end = 2;
+}
+
+message GetExchangeListReply {
+  repeated List list = 1;
+  message List {
+    uint64 blockTime = 1;
+    double price = 2;
+  }
+}
+
+message GetBuyListRequest {
+  uint64 start = 1;
+  uint64 end = 2;
+}
+
+message GetBuyListReply {
+  repeated List list = 1;
+  message List {
+    uint64 blockTime = 1;
+    double price = 2;
+    double usdtUse = 3;
+    double ausdGrossOut = 4;
+  }
+}
+
+message GetRewardListRequest {
+  string address = 3;
+  uint64 page = 1;
+  uint64 reason = 2;
+}
+
+message GetRewardListReply {
+  uint64 count = 2; // 总数，每页20
+  repeated List list = 1;
+  message List {
+    string user = 1;
+    uint64 reason = 2; // 1盲盒收益 2L1收益 3L2收益 4Top收益 5项目方收益
+    double amount = 3; // 金额
+    uint64 blockTime = 4; // 时间
+  }
+}
+
+message GetBuyBoxListRequest {
+  string address = 3;
+  uint64 page = 1;
+}
+
+message GetBuyBoxListReply {
+  uint64 count = 2; // 总数，每页20
+  repeated List list = 1;
+  message List {
+    string user = 1;
+    uint64 tokenId = 2; // tokenId
+    double priceUsdt = 3; // 金额
+    double feeUsdt = 6; // 手续费u
+    double feeB = 5; // 手续费b
+    uint64 blockTime = 4; // 时间
+  }
+}
+
+message GetSellBoxListRequest {
+  string address = 3;
+  uint64 page = 1;
+}
+
+message GetSellBoxListReply {
+  uint64 count = 2; // 总数，每页10
+  repeated List list = 1;
+  message List {
+    uint64 tokenId = 2; // tokenId
+    double priceUsdt = 3; // 售出金额
+    double feeUsdt = 6; // 手续费u
+    double feeB = 5; // 手续费b
+    uint64 blockTime = 4; // 时间
+  }
+}
+
+message UpdateBoxRequest {
+}
+
+message UpdateBoxReply {
+}
+
+// GET /api/get_address_box — 与 GetNftMintedByAddressPage 筛选一致（internal/biz GetAddressBox）
+message GetAddressBoxRequest {
+  uint64 start = 7;      // 可选：铸造时间 block_time 下限（须与 end 同时 >0 才按时间筛）
+  uint64 end = 8;        // 可选：铸造时间 block_time 上限
+  string address = 3;    // 用户钱包 0x…
+  uint64 page = 1;       // 页码从 1 起，每页 10 条
+  uint64 num = 2;        // 上架：0=仅未上架（仓库）；1=仅挂单中；≥2=不按上架筛
+  uint64 numTwo = 5;     // 档位：0=全档位；1=tier1(20U)；2=tier2(50U)；3=tier3(100U)
+  uint64 numThree = 4;   // id 排序：0=倒序；1=正序
+  uint64 numFour = 9;    // 开盒时间：0=不附加；1=opened_at 倒序；>1=opened_at 正序
+  uint64 openStatus = 6; // 开盒：0=仅未开盒；1=仅已开盒；≥2=不按开盒筛
+  // 出售/挂单成功后前端可传入，在链上/库未同步前先从本页列表中排除（乐观更新）
+  repeated uint64 exclude_token_ids = 10;
+}
+
+message GetAddressBoxReply {
+  uint64 count = 2; // 总数，每页10
+  repeated List list = 1;
+  message List {
+    uint64 tokenId = 2; // tokenId
+    double priceUsdt = 3; // 金额
+    uint64 tier = 7; // 1表示20 ，2表示50，3表示100
+    double priceUsdtNow = 4; // 目前增长金额
+    uint64 blockTime = 5; // 铸造时间
+    uint64 listTime = 6; // 上架时间
+    uint64 openStatus = 8;
+    uint64 openTime = 9;
+    string minter = 10;
+    // NFT 合约 boxInfo：链上结算结果（与 PrincipalVault.principalInfo 独立；金库未写入时仍可能已结算）
+    double box_reward_usdt = 11; // reward / 1e18，可负；未结算时为 0
+    uint64 reward_set_at = 12;   // rewardSetAt，0 表示链上尚未 setRewardOnce
+    double chain_usdt_paid = 13; // 链上 boxInfo.usdtPaid / 1e18，作本金展示兜底
+  }
+}
+
+message GetMarketListRequest {
+  uint64 page = 1;
+  uint64 numTwo = 5; // 0全部，1表示20, 2表示50, 3表示100
+  uint64 num = 4; // 时间，0倒叙，1顺序
+  uint64 numThree = 3; // 价格，0倒叙，1顺序
+}
+
+message GetMarketListReply {
+  uint64 count = 2; // 总数，每页10
+  repeated List list = 1;
+  message List {
+    uint64 tokenId = 2; // tokenId
+    double priceUsdt = 3; // 金额
+    uint64 tier = 7; // 1表示20 ，2表示50，3表示100
+    double priceUsdtNow = 4; // 目前增长金额
+    uint64 blockTime = 5; // 铸造时间
+    uint64 listTime = 6; // 上架时间
+    string minter = 10;
+  }
+}
+
+message GetAllInfoRequest {
+  uint64 start = 1;
+  uint64 end = 2;
+}
+
+
+message GetAllInfoReply {
+  uint64 userCount = 1; // 用户注册总数
+  uint64 todayUserCount = 2; // 今日新增用户总数
+  uint64 todayMintedCount = 3; // 今日铸造量
+  string todayMintedSum = 4; // 今日铸造金额
+  uint64 mintedCount = 5; // 总铸造量
+  string mintedSum = 6; // 总铸金额
+  uint64 mintedCountNoOpen = 115; // 已铸造量未打卡
+  string mintedSumNoOpen = 116; // 已铸金额未打卡
+
+  uint64 mintedCountOne = 7; // 总铸造量1档
+  string mintedSumOne = 8; // 总铸金额1档
+
+  uint64 mintedCountTwo = 9; // 总铸造量2档
+  string mintedSumTwo = 10; // 总铸金额2档
+
+  uint64 mintedCountThree = 11; // 总铸造量3档
+  string mintedSumThree = 12; // 总铸金额3档
+
+  uint64 buyCount = 13; // 历史销售总量
+  string buySum = 14; // 历史销售金额
+
+  uint64 todayBuyCount = 15; // 今日历史销售总量
+  string todayBuySum = 16; // 今日历史销售金额
+
+  string openReward = 17; // 盲盒总盈利
+}
+
+// 铸造分佣待发列表
+message ReferralListPendingRequest {
+  int32 page = 1;
+  int32 page_size = 2;  // 默认20
+  bool paid = 3;        // true=已打款 false=待打款 不传=全部
+}
+
+message ReferralListPendingReply {
+  int64 total = 1;
+  repeated ReferralPendingItem list = 2;
+}
+
+message ReferralPendingItem {
+  uint64 id = 1;
+  uint64 minted_id = 15;   // nft_minted.id（铸造分佣来源）
+  uint64 purchase_id = 2;  // 历史兼容，新记录为 0
+  uint64 token_id = 3;
+  string minter = 4;
+  string seller = 5;
+  string buyer = 6;
+  string price = 7;
+  string addr_b = 8;
+  string addr_c = 9;
+  string amount_to_b = 10;
+  string amount_to_c = 11;
+  string amount_to_project = 12;
+  uint32 reason = 13;   // 0正常 1仅D不合格 2仅B不合格 3无上级 4都不合格
+  string paid_tx_hash = 14;
+}
+
+message ReferralPayoutRequest {
+  message SendBody {
+    repeated uint64 ids = 1;       // referral_pending.id 列表
+    string usdt_address = 2;      // USDT 合约地址，可选
+    string rpc_url = 3;           // RPC URL，可选
+  }
+  SendBody send_body = 1;
+}
+
+message ReferralPayoutReply {
+  int32 paid_count = 1;
+  repeated string tx_hashes = 2;
+  string err = 3;
+}
+
+// 按日开盒利润统计
+message GetOpenedBoxProfitStatsRequest {
+  uint64 start = 1;  // 开始时间戳（秒）
+  uint64 end = 2;    // 结束时间戳（秒）
+  int32 page = 3;
+  int32 page_size = 4;  // 默认 20
+}
+
+message GetOpenedBoxProfitStatsReply {
+  int64 total = 1;
+  string total_profit = 2;   // 时间段内利润总和（reward 代数和，可正可负）
+  uint64 profit_count = 3;   // 盈利盲盒数
+  uint64 loss_count = 4;     // 亏损盲盒数
+  repeated GetOpenedBoxProfitStatsReply_Item list = 5;
+}
+
+message GetOpenedBoxProfitStatsReply_Item {
+  uint64 token_id = 1;
+  string user_addr = 2;
+  string reward = 3;         // 正为盈利，负为亏损
+  string usdt_paid = 4;      // 铸造本金
+  uint64 block_time = 5;
+}
+
+// 手续费收入统计（二级市场交易）
+message GetFeeIncomeStatsRequest {
+  uint64 start = 1;
+  uint64 end = 2;
+}
+
+message GetFeeIncomeStatsReply {
+  string fee_usdt_sum = 1;   // USDT 手续费总和
+  string fee_b_sum = 2;       // HRX 手续费总和
+  uint64 count = 3;           // 交易笔数
+}

@@ -1,0 +1,19 @@
+# 数据库口令是占位符 password。本地使用前自行修改，不要提交真实口令。
+server:
+  http:
+    addr: 127.0.0.1:18000
+    timeout: 120s
+  grpc:
+    addr: 127.0.0.1:19000
+    timeout: 30s
+data:
+  database:
+    driver: mysql
+    source: requesteth:password@tcp(127.0.0.1:3306)/game_test?parseTime=true
+  redis:
+    addr: 127.0.0.1:6379
+    read_timeout: 0.2s
+    write_timeout: 0.2s
+eth:
+  bsc:
+    addr: https://data-seed-prebsc-1-s3.binance.org:8545

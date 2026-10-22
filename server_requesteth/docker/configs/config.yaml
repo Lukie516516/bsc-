@@ -1,0 +1,21 @@
+# Docker 部署用：mysql/redis 使用 compose 服务名
+# 私钥、合约地址等通过 .env 环境变量传入
+
+server:
+  http:
+    addr: 0.0.0.0:8000
+    timeout: 3600s
+  grpc:
+    addr: 0.0.0.0:9000
+    timeout: 30s
+data:
+  database:
+    driver: mysql
+    source: root:password@tcp(mysql:3306)/game?parseTime=true
+  redis:
+    addr: redis:6379
+    read_timeout: 0.2s
+    write_timeout: 0.2s
+eth:
+  bsc:
+    addr: https://bsc-dataseed4.binance.org/

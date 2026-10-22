@@ -1,0 +1,18 @@
+# 与 configs/config.fronttest.yaml 中 data.database.source 相同（本机 xampp 用）:
+#   game_fronttest:password@tcp(127.0.0.1:3306)/game_fronttest?parseTime=true
+# 曾误写 game_frontte 的，请一律改为 game_fronttest。1045 时见 scripts/sql-init-xampp.sql
+server:
+  http:
+    addr: 127.0.0.1:8003
+    timeout: 3600s
+  grpc:
+    addr: 127.0.0.1:9003
+    timeout: 30s
+data:
+  database:
+    driver: mysql
+    source: game_fronttest:password@tcp(127.0.0.1:3306)/game_fronttest?parseTime=true
+  redis:
+    addr: 127.0.0.1:6379
+    read_timeout: 0.2s
+    write_timeout: 0.2s

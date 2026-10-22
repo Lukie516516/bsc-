@@ -1,0 +1,98 @@
+# 本地 Go 环境 + 服务端 Docker 部署（复制代码即用）
+
+## 一、Windows 本机安装 Go
+
+1. 打开 <https://go.dev/dl/>，下载 Windows 安装包（例如 `go1.24.x.windows-amd64.msi`），一路下一步。
+2. **新开** PowerShell 或 CMD，执行：
+   ```powershell
+   go version
+   go env GOPATH GOROOT
+   ```
+3. 建议把 `GOPATH\bin` 加入用户 PATH（安装程序通常已加）：  
+   `%USERPROFILE%\go\bin`
+
+4. 国内可设代理加速模块下载（可选）：
+   ```powershell
+   go env -w GOPROXY=https://goproxy.cn,direct
+   ```
+
+## 二、本机编译 / 生成 proto（开发时用）
+
+在项目根目录 `requestEth`：
+
+```powershell
+cd d:\nft-blind\requestEth
+go mod download
+```
+
+若改了 `api/.../transaction.proto`，需要 **protoc** 与插件：
+
+- 安装 protoc：从 <https://github.com/protocolbuffers/protobuf/releases> 下载 Windows `protoc-xx-win64.zip`，把 `bin\protoc.exe` 放到 PATH。
+- 安装插件：
+  ```powershell
+  go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
+  go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
+  go install github.com/go-kratos/kratos/cmd/protoc-gen-go-http/v2@latest
+  go install github.com/google/gnostic/cmd/protoc-gen-openapi@latest
+  ```
+- 生成 API：
+  ```powershell
+  $env:PATH = "$(go env GOPATH)\bin;" + $env:PATH
+  make api
+  ```
+  无 `make` 时可装 Git Bash 或 Chocolatey 的 `make`，或在 WSL 里执行 `make api`。
+
+## 三、本机模拟前端冒烟测试
+
+```powershell
+cd d:\nft-blind\requestEth
+$env:API_BASE = "http://127.0.0.1:8003"   # 或公网 http://IP:8003
+$env:ADDR = "0x你的钱包地址"
+.\scripts\smoke-test.ps1
+```
+
+Linux / 服务器上：
+
+```bash
+export API_BASE=http://127.0.0.1:8003
+export ADDR=0x你的钱包地址
+bash scripts/smoke-test.sh
+```
+
+（可选）安装 `jq` 便于 JSON 校验：`apt install jq`。
+
+## 四、服务端：复制代码后只用 Docker 跑（推荐流程）
+
+**镜像里的二进制是构建时打进去的**，宿主机 `go build` **不会**更新容器，必须 **重建镜像**。
+
+```bash
+cd /www/wwwroot/NewrequestEth/requestEth
+# 同步代码（git pull 或覆盖文件）
+
+docker compose build --no-cache api
+docker compose up -d api
+
+# 若 workers 也改过
+# docker compose build --no-cache
+# docker compose up -d
+```
+
+健康检查：
+
+```bash
+curl -s http://127.0.0.1:8003/health
+bash scripts/smoke-test.sh
+```
+
+## 五、`.env` 与配置
+
+- 根目录 `.env` 供 `docker compose` 的 `env_file` 使用（合约地址、RPC 等）。
+- `docker/configs/` 下为 Kratos 配置（数据库指向 compose 里的 `mysql` 服务名）。
+
+## 六、下次迭代最小步骤
+
+1. 本机改代码 → 提交/打包同步到服务器目录。  
+2. 服务器：`docker compose build --no-cache api && docker compose up -d api`。  
+3. `curl` / `scripts/smoke-test.sh` 验证。
+
+若 **未改 proto**，服务器可不跑 `make api`，Dockerfile 构建时会执行 `protoc`（见 `Dockerfile`）。

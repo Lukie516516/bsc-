@@ -1,0 +1,25 @@
+{
+  "name": "box",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "deploy:bsc": "hardhat ignition deploy ./ignition/modules/BlindBox.ts --network bsc",
+    "deploy:bsc:test": "hardhat ignition deploy ./ignition/modules/BlindBoxMainnetTest.ts --network bsc",
+    "deploy:testnet": "hardhat ignition deploy ./ignition/modules/BlindBoxTestnet.ts --network bscTestnet"
+  },
+  "devDependencies": {
+    "dotenv": "^16.4.5",
+    "@nomicfoundation/hardhat-ignition": "^3.0.5",
+    "@nomicfoundation/hardhat-toolbox-viem": "^5.0.1",
+    "@types/node": "^22.19.1",
+    "forge-std": "github:foundry-rs/forge-std#v1.9.4",
+    "hardhat": "^3.0.16",
+    "typescript": "~5.8.0",
+    "viem": "^2.40.3"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^5.6.1",
+    "@openzeppelin/contracts-upgradeable": "^5.6.1",
+    "prb-math": "^2.4.3"
+  }
+}

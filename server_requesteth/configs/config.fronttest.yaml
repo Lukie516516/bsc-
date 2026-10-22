@@ -1,0 +1,23 @@
+server:
+  http:
+    addr: 0.0.0.0:8003
+    timeout: 3600s
+  grpc:
+    addr: 0.0.0.0:9003
+    timeout: 30s
+
+data:
+  database:
+    driver: mysql
+    source: game_fronttest:password@tcp(127.0.0.1:3306)/game_fronttest?parseTime=true
+  redis:
+    addr: 127.0.0.1:6379
+    read_timeout: 0.2s
+    write_timeout: 0.2s
+
+eth:
+  bsc:
+    addr: https://data-seed-prebsc-1-s3.binance.org:8545
+
+referral:
+  enabled: false

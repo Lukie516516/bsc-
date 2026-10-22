@@ -1,0 +1,1577 @@
+# Generated with protoc-gen-openapi
+# https://github.com/google/gnostic/tree/master/cmd/protoc-gen-openapi
+
+openapi: 3.0.3
+info:
+    title: Transaction API
+    version: 0.0.1
+paths:
+    /api/add_liquidity:
+        post:
+            tags:
+                - Transaction
+            operationId: Transaction_AddLiquidity
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/api.requestEth.v1.AddLiquidityRequest_SendBody'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.requestEth.v1.AddLiquidityReply'
+    /api/add_white:
+        get:
+            tags:
+                - Transaction
+            operationId: Transaction_AddWhite
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.requestEth.v1.AddWhiteReply'
+    /api/buy:
+        post:
+            tags:
+                - Transaction
+            operationId: Transaction_BuyAICAT
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/api.requestEth.v1.BuyAICATRequest_SendBody'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.requestEth.v1.BuyAICATReply'
+    /api/eth_balance:
+        get:
+            tags:
+                - Transaction
+            operationId: Transaction_EthBalance
+            parameters:
+                - name: address
+                  in: query
+                  schema:
+                    type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.requestEth.v1.EthBalanceReply'
+    /api/generate_key:
+        get:
+            tags:
+                - Transaction
+            operationId: Transaction_GenerateKey
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.requestEth.v1.GenerateKeyReply'
+    /api/get_address_box:
+        get:
+            tags:
+                - Transaction
+            operationId: Transaction_GetAddressBox
+            parameters:
+                - name: start
+                  in: query
+                  schema:
+                    type: string
+                - name: end
+                  in: query
+                  schema:
+                    type: string
+                - name: address
+                  in: query
+                  schema:
+                    type: string
+                - name: page
+                  in: query
+                  schema:
+                    type: string
+                - name: num
+                  in: query
+                  schema:
+                    type: string
+                - name: numTwo
+                  in: query
+                  schema:
+                    type: string
+                - name: numThree
+                  in: query
+                  schema:
+                    type: string
+                - name: numFour
+                  in: query
+                  schema:
+                    type: string
+                - name: openStatus
+                  in: query
+                  schema:
+                    type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.requestEth.v1.GetAddressBoxReply'
+    /api/get_all:
+        get:
+            tags:
+                - Transaction
+            operationId: Transaction_GetAll
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.requestEth.v1.GetAllReply'
+    /api/get_all_info:
+        get:
+            tags:
+                - Transaction
+            operationId: Transaction_GetAllInfo
+            parameters:
+                - name: start
+                  in: query
+                  schema:
+                    type: string
+                - name: end
+                  in: query
+                  schema:
+                    type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.requestEth.v1.GetAllInfoReply'
+    /api/get_all_two:
+        get:
+            tags:
+                - Transaction
+            operationId: Transaction_GetAllTwo
+            parameters:
+                - name: contract
+                  in: query
+                  schema:
+                    type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.requestEth.v1.GetAllTwoReply'
+    /api/get_array:
+        get:
+            tags:
+                - Transaction
+            operationId: Transaction_GetArray
+            parameters:
+                - name: reqType
+                  in: query
+                  schema:
+                    type: string
+                - name: contract
+                  in: query
+                  schema:
+                    type: string
+                - name: start
+                  in: query
+                  schema:
+                    type: string
+                - name: end
+                  in: query
+                  schema:
+                    type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.requestEth.v1.GetArrayReply'
+    /api/get_box_all:
+        get:
+            tags:
+                - Transaction
+            operationId: Transaction_GetBoxAllLength
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.requestEth.v1.GetBoxAllReply'
+    /api/get_box_buy_event:
+        get:
+            tags:
+                - Transaction
+            operationId: Transaction_GetBoxBuyEvent
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.requestEth.v1.GetBoxBuyEventReply'
+    /api/get_box_list_event:
+        get:
+            tags:
+                - Transaction
+            operationId: Transaction_GetBoxListEvent
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.requestEth.v1.GetBoxListEventReply'
+    /api/get_box_mint_event:
+        get:
+            tags:
+                - Transaction
+            operationId: Transaction_GetBoxMintEvent
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.requestEth.v1.GetBoxMintEventReply'
+    /api/get_box_mint_event_fix:
+        get:
+            tags:
+                - Transaction
+            operationId: Transaction_GetBoxMintEventFix
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.requestEth.v1.GetBoxMintEventReply'
+    /api/get_box_new:
+        get:
+            tags:
+                - Transaction
+            operationId: Transaction_GetBoxNew
+            parameters:
+                - name: start
+                  in: query
+                  schema:
+                    type: string
+                - name: end
+                  in: query
+                  schema:
+                    type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.requestEth.v1.GetBoxNewReply'
+    /api/get_box_open:
+        get:
+            tags:
+                - Transaction
+            operationId: Transaction_GetBoxOpen
+            parameters:
+                - name: start
+                  in: query
+                  schema:
+                    type: string
+                - name: end
+                  in: query
+                  schema:
+                    type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.requestEth.v1.GetBoxOpenReply'
+    /api/get_box_open_event:
+        get:
+            tags:
+                - Transaction
+            operationId: Transaction_GetBoxOpenEvent
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.requestEth.v1.GetBoxOpenEventReply'
+    /api/get_box_reward_event:
+        get:
+            tags:
+                - Transaction
+            operationId: Transaction_GetBoxRewardEvent
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.requestEth.v1.GetBoxRewardEventReply'
+    /api/get_box_transfer_event:
+        get:
+            tags:
+                - Transaction
+            operationId: Transaction_GetBoxTransferEvent
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.requestEth.v1.GetBoxTransferEventReply'
+    /api/get_box_unlist_event:
+        get:
+            tags:
+                - Transaction
+            operationId: Transaction_GetBoxUnListEvent
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.requestEth.v1.GetBoxUnListEventReply'
+    /api/get_buy:
+        get:
+            tags:
+                - Transaction
+            operationId: Transaction_GetBuyByOrderId
+            parameters:
+                - name: orderId
+                  in: query
+                  schema:
+                    type: string
+                - name: contract
+                  in: query
+                  schema:
+                    type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.requestEth.v1.GetBuyByOrderIdReply'
+    /api/get_buy_aicat_by_order_id:
+        get:
+            tags:
+                - Transaction
+            operationId: Transaction_GetBuyAICATByOrderId
+            parameters:
+                - name: orderId
+                  in: query
+                  schema:
+                    type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.requestEth.v1.GetBuyAICATByOrderIdReply'
+    /api/get_buy_box_list:
+        get:
+            tags:
+                - Transaction
+            operationId: Transaction_GetBuyBoxList
+            parameters:
+                - name: address
+                  in: query
+                  schema:
+                    type: string
+                - name: page
+                  in: query
+                  schema:
+                    type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.requestEth.v1.GetBuyBoxListReply'
+    /api/get_buy_event:
+        get:
+            tags:
+                - Transaction
+            operationId: Transaction_GetBuyEvent
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.requestEth.v1.GetBuyEventReply'
+    /api/get_buy_list:
+        get:
+            tags:
+                - Transaction
+            operationId: Transaction_GetBuyList
+            parameters:
+                - name: start
+                  in: query
+                  schema:
+                    type: string
+                - name: end
+                  in: query
+                  schema:
+                    type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.requestEth.v1.GetBuyListReply'
+    /api/get_daily_fee:
+        get:
+            tags:
+                - Transaction
+            operationId: Transaction_GetDailyFee
+            parameters:
+                - name: ts
+                  in: query
+                  schema:
+                    type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.requestEth.v1.GetDailyFeeReply'
+    /api/get_exchange_event:
+        get:
+            tags:
+                - Transaction
+            operationId: Transaction_GetExchangeEvent
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.requestEth.v1.GetExchangeEventReply'
+    /api/get_exchange_list:
+        get:
+            tags:
+                - Transaction
+            operationId: Transaction_GetExchangeList
+            parameters:
+                - name: start
+                  in: query
+                  schema:
+                    type: string
+                - name: end
+                  in: query
+                  schema:
+                    type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.requestEth.v1.GetExchangeListReply'
+    /api/get_fee_income_stats:
+        get:
+            tags:
+                - Transaction
+            description: 手续费收入统计：二级市场交易手续费（USDT/HRX）按时间段汇总
+            operationId: Transaction_GetFeeIncomeStats
+            parameters:
+                - name: start
+                  in: query
+                  schema:
+                    type: string
+                - name: end
+                  in: query
+                  schema:
+                    type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.requestEth.v1.GetFeeIncomeStatsReply'
+    /api/get_lp:
+        get:
+            tags:
+                - Transaction
+            operationId: Transaction_GetLpByOrderId
+            parameters:
+                - name: orderId
+                  in: query
+                  schema:
+                    type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.requestEth.v1.GetLpByOrderIdReply'
+    /api/get_market_box_list:
+        get:
+            tags:
+                - Transaction
+            operationId: Transaction_GetMarketList
+            parameters:
+                - name: page
+                  in: query
+                  schema:
+                    type: string
+                - name: numTwo
+                  in: query
+                  schema:
+                    type: string
+                - name: num
+                  in: query
+                  schema:
+                    type: string
+                - name: numThree
+                  in: query
+                  schema:
+                    type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.requestEth.v1.GetMarketListReply'
+    /api/get_opened_box_profit_stats:
+        get:
+            tags:
+                - Transaction
+            description: 按日开盒利润统计：已开盲盒的利润明细与汇总（可筛选某天/时间段）
+            operationId: Transaction_GetOpenedBoxProfitStats
+            parameters:
+                - name: start
+                  in: query
+                  schema:
+                    type: string
+                - name: end
+                  in: query
+                  schema:
+                    type: string
+                - name: page
+                  in: query
+                  schema:
+                    type: integer
+                    format: int32
+                - name: pageSize
+                  in: query
+                  schema:
+                    type: integer
+                    format: int32
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.requestEth.v1.GetOpenedBoxProfitStatsReply'
+    /api/get_reserves:
+        get:
+            tags:
+                - Transaction
+            operationId: Transaction_GetReserves
+            parameters:
+                - name: pair
+                  in: query
+                  schema:
+                    type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.requestEth.v1.GetReservesReply'
+    /api/get_reward_list:
+        get:
+            tags:
+                - Transaction
+            operationId: Transaction_GetRewardList
+            parameters:
+                - name: address
+                  in: query
+                  schema:
+                    type: string
+                - name: page
+                  in: query
+                  schema:
+                    type: string
+                - name: reason
+                  in: query
+                  schema:
+                    type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.requestEth.v1.GetRewardListReply'
+    /api/get_sell_box_list:
+        get:
+            tags:
+                - Transaction
+            operationId: Transaction_GetSellBoxList
+            parameters:
+                - name: address
+                  in: query
+                  schema:
+                    type: string
+                - name: page
+                  in: query
+                  schema:
+                    type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.requestEth.v1.GetSellBoxListReply'
+    /api/get_sell_event:
+        get:
+            tags:
+                - Transaction
+            operationId: Transaction_GetSellEvent
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.requestEth.v1.GetSellEventReply'
+    /api/get_user_lp:
+        get:
+            tags:
+                - Transaction
+            operationId: Transaction_GetUserLp
+            parameters:
+                - name: address
+                  in: query
+                  schema:
+                    type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.requestEth.v1.GetUserLpReply'
+    /api/get_user_r_event:
+        get:
+            tags:
+                - Transaction
+            operationId: Transaction_GetUserREvent
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.requestEth.v1.GetUserREventReply'
+    /api/referral_payout:
+        post:
+            tags:
+                - Transaction
+            operationId: Transaction_ReferralPayout
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/api.requestEth.v1.ReferralPayoutRequest_SendBody'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.requestEth.v1.ReferralPayoutReply'
+    /api/referral_pending:
+        get:
+            tags:
+                - Transaction
+            description: 铸造分佣：查询待打款 / 批量打款
+            operationId: Transaction_ReferralListPending
+            parameters:
+                - name: page
+                  in: query
+                  schema:
+                    type: integer
+                    format: int32
+                - name: pageSize
+                  in: query
+                  schema:
+                    type: integer
+                    format: int32
+                - name: paid
+                  in: query
+                  schema:
+                    type: boolean
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.requestEth.v1.ReferralListPendingReply'
+    /api/remove_liquidity:
+        post:
+            tags:
+                - Transaction
+            operationId: Transaction_RemoveLiquidity
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/api.requestEth.v1.RemoveLiquidityRequest_SendBody'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.requestEth.v1.RemoveLiquidityReply'
+    /api/send_aicat:
+        post:
+            tags:
+                - Transaction
+            operationId: Transaction_SendAICAT
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/api.requestEth.v1.SendAICATRequest_SendBody'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.requestEth.v1.SendAICATReply'
+    /api/set_reward:
+        post:
+            tags:
+                - Transaction
+            operationId: Transaction_SetReward
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/api.requestEth.v1.SetRewardRequest_SendBody'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.requestEth.v1.SetRewardReply'
+    /api/set_reward_two:
+        post:
+            tags:
+                - Transaction
+            operationId: Transaction_SetRewardTwo
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/api.requestEth.v1.SetRewardRequest_SendBody'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.requestEth.v1.SetRewardReply'
+    /api/transaction:
+        post:
+            tags:
+                - Transaction
+            operationId: Transaction_SendTransaction
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/api.requestEth.v1.SendTransactionRequest_SendBody'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.requestEth.v1.SendTransactionReply'
+    /api/transaction/{tx}:
+        get:
+            tags:
+                - Transaction
+            operationId: Transaction_Transaction
+            parameters:
+                - name: tx
+                  in: path
+                  required: true
+                  schema:
+                    type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.requestEth.v1.TransactionReply'
+    /api/transaction_eth:
+        post:
+            tags:
+                - Transaction
+            operationId: Transaction_SendTransactionEth
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/api.requestEth.v1.SendTransactionEthRequest_SendBody'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.requestEth.v1.SendTransactionEthReply'
+    /api/update_box:
+        get:
+            tags:
+                - Transaction
+            operationId: Transaction_UpdateBox
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.requestEth.v1.UpdateBoxReply'
+    /api/usdt_balance:
+        get:
+            tags:
+                - Transaction
+            operationId: Transaction_TokenBalance
+            parameters:
+                - name: token
+                  in: query
+                  schema:
+                    type: string
+                - name: address
+                  in: query
+                  schema:
+                    type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.requestEth.v1.TokenBalanceReply'
+    /api/verify_sig:
+        get:
+            tags:
+                - Transaction
+            operationId: Transaction_VerifySig
+            parameters:
+                - name: sign
+                  in: query
+                  schema:
+                    type: string
+                - name: content
+                  in: query
+                  schema:
+                    type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.requestEth.v1.VerifySigReply'
+    /api/withdraw:
+        post:
+            tags:
+                - Transaction
+            operationId: Transaction_WithdrawAICAT
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/api.requestEth.v1.WithdrawAICATRequest_SendBody'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/api.requestEth.v1.WithdrawAICATReply'
+components:
+    schemas:
+        api.requestEth.v1.AddLiquidityReply:
+            type: object
+            properties:
+                res:
+                    type: string
+        api.requestEth.v1.AddLiquidityRequest_SendBody:
+            type: object
+            properties:
+                orderId:
+                    type: string
+                user:
+                    type: string
+                amountUsdt:
+                    type: string
+                amountAicat:
+                    type: string
+        api.requestEth.v1.AddWhiteReply:
+            type: object
+            properties:
+                res:
+                    type: string
+        api.requestEth.v1.BuyAICATReply:
+            type: object
+            properties:
+                res:
+                    type: string
+        api.requestEth.v1.BuyAICATRequest_SendBody:
+            type: object
+            properties:
+                orderId:
+                    type: string
+                usdtAmount:
+                    type: string
+                contract:
+                    type: string
+        api.requestEth.v1.EthBalanceReply:
+            type: object
+            properties:
+                balance:
+                    type: string
+                err:
+                    type: string
+        api.requestEth.v1.GenerateKeyReply:
+            type: object
+            properties:
+                address:
+                    type: string
+                privateKey:
+                    type: string
+                err:
+                    type: string
+        api.requestEth.v1.GetAddressBoxReply:
+            type: object
+            properties:
+                count:
+                    type: string
+                list:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/api.requestEth.v1.GetAddressBoxReply_List'
+        api.requestEth.v1.GetAddressBoxReply_List:
+            type: object
+            properties:
+                tokenId:
+                    type: string
+                priceUsdt:
+                    type: number
+                    format: double
+                tier:
+                    type: string
+                priceUsdtNow:
+                    type: number
+                    format: double
+                blockTime:
+                    type: string
+                listTime:
+                    type: string
+                openStatus:
+                    type: string
+                openTime:
+                    type: string
+                minter:
+                    type: string
+        api.requestEth.v1.GetAllInfoReply:
+            type: object
+            properties:
+                userCount:
+                    type: string
+                todayUserCount:
+                    type: string
+                todayMintedCount:
+                    type: string
+                todayMintedSum:
+                    type: string
+                mintedCount:
+                    type: string
+                mintedSum:
+                    type: string
+                mintedCountNoOpen:
+                    type: string
+                mintedSumNoOpen:
+                    type: string
+                mintedCountOne:
+                    type: string
+                mintedSumOne:
+                    type: string
+                mintedCountTwo:
+                    type: string
+                mintedSumTwo:
+                    type: string
+                mintedCountThree:
+                    type: string
+                mintedSumThree:
+                    type: string
+                buyCount:
+                    type: string
+                buySum:
+                    type: string
+                todayBuyCount:
+                    type: string
+                todayBuySum:
+                    type: string
+                openReward:
+                    type: string
+        api.requestEth.v1.GetAllReply:
+            type: object
+            properties:
+                buyArrayLength:
+                    type: string
+                reqLpArrayLength:
+                    type: string
+                withdrawArrayLength:
+                    type: string
+        api.requestEth.v1.GetAllTwoReply:
+            type: object
+            properties:
+                buyArrayLength:
+                    type: string
+        api.requestEth.v1.GetArrayReply:
+            type: object
+            properties:
+                list:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/api.requestEth.v1.GetArrayReply_List'
+        api.requestEth.v1.GetArrayReply_List:
+            type: object
+            properties:
+                orderId:
+                    type: string
+        api.requestEth.v1.GetBoxAllReply:
+            type: object
+            properties:
+                newLength:
+                    type: string
+                openLength:
+                    type: string
+        api.requestEth.v1.GetBoxBuyEventReply:
+            type: object
+            properties: {}
+        api.requestEth.v1.GetBoxListEventReply:
+            type: object
+            properties: {}
+        api.requestEth.v1.GetBoxMintEventReply:
+            type: object
+            properties: {}
+        api.requestEth.v1.GetBoxNewReply:
+            type: object
+            properties:
+                list:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/api.requestEth.v1.GetBoxNewReply_List'
+        api.requestEth.v1.GetBoxNewReply_List:
+            type: object
+            properties:
+                tokenId:
+                    type: string
+                price:
+                    type: string
+                openedAt:
+                    type: string
+                mintAt:
+                    type: string
+                reward:
+                    type: string
+                rewardAt:
+                    type: string
+        api.requestEth.v1.GetBoxOpenEventReply:
+            type: object
+            properties: {}
+        api.requestEth.v1.GetBoxOpenReply:
+            type: object
+            properties:
+                list:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/api.requestEth.v1.GetBoxOpenReply_List'
+        api.requestEth.v1.GetBoxOpenReply_List:
+            type: object
+            properties:
+                tokenId:
+                    type: string
+                price:
+                    type: string
+                openedAt:
+                    type: string
+                mintAt:
+                    type: string
+                reward:
+                    type: string
+                rewardAt:
+                    type: string
+        api.requestEth.v1.GetBoxRewardEventReply:
+            type: object
+            properties: {}
+        api.requestEth.v1.GetBoxTransferEventReply:
+            type: object
+            properties: {}
+        api.requestEth.v1.GetBoxUnListEventReply:
+            type: object
+            properties: {}
+        api.requestEth.v1.GetBuyAICATByOrderIdReply:
+            type: object
+            properties:
+                amount:
+                    type: string
+        api.requestEth.v1.GetBuyBoxListReply:
+            type: object
+            properties:
+                count:
+                    type: string
+                list:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/api.requestEth.v1.GetBuyBoxListReply_List'
+        api.requestEth.v1.GetBuyBoxListReply_List:
+            type: object
+            properties:
+                user:
+                    type: string
+                tokenId:
+                    type: string
+                priceUsdt:
+                    type: number
+                    format: double
+                feeUsdt:
+                    type: number
+                    format: double
+                feeB:
+                    type: number
+                    format: double
+                blockTime:
+                    type: string
+        api.requestEth.v1.GetBuyByOrderIdReply:
+            type: object
+            properties:
+                usdtArray:
+                    type: string
+                catArray:
+                    type: string
+        api.requestEth.v1.GetBuyEventReply:
+            type: object
+            properties: {}
+        api.requestEth.v1.GetBuyListReply:
+            type: object
+            properties:
+                list:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/api.requestEth.v1.GetBuyListReply_List'
+        api.requestEth.v1.GetBuyListReply_List:
+            type: object
+            properties:
+                blockTime:
+                    type: string
+                price:
+                    type: number
+                    format: double
+                usdtUse:
+                    type: number
+                    format: double
+                ausdGrossOut:
+                    type: number
+                    format: double
+        api.requestEth.v1.GetDailyFeeReply:
+            type: object
+            properties:
+                ammount:
+                    type: string
+        api.requestEth.v1.GetExchangeEventReply:
+            type: object
+            properties: {}
+        api.requestEth.v1.GetExchangeListReply:
+            type: object
+            properties:
+                list:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/api.requestEth.v1.GetExchangeListReply_List'
+        api.requestEth.v1.GetExchangeListReply_List:
+            type: object
+            properties:
+                blockTime:
+                    type: string
+                price:
+                    type: number
+                    format: double
+        api.requestEth.v1.GetFeeIncomeStatsReply:
+            type: object
+            properties:
+                feeUsdtSum:
+                    type: string
+                feeBSum:
+                    type: string
+                count:
+                    type: string
+        api.requestEth.v1.GetLpByOrderIdReply:
+            type: object
+            properties:
+                lpArray:
+                    type: string
+                lpUsdtArray:
+                    type: string
+                lpCatArray:
+                    type: string
+        api.requestEth.v1.GetMarketListReply:
+            type: object
+            properties:
+                count:
+                    type: string
+                list:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/api.requestEth.v1.GetMarketListReply_List'
+        api.requestEth.v1.GetMarketListReply_List:
+            type: object
+            properties:
+                tokenId:
+                    type: string
+                priceUsdt:
+                    type: number
+                    format: double
+                tier:
+                    type: string
+                priceUsdtNow:
+                    type: number
+                    format: double
+                blockTime:
+                    type: string
+                listTime:
+                    type: string
+                minter:
+                    type: string
+        api.requestEth.v1.GetOpenedBoxProfitStatsReply:
+            type: object
+            properties:
+                total:
+                    type: string
+                totalProfit:
+                    type: string
+                profitCount:
+                    type: string
+                lossCount:
+                    type: string
+                list:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/api.requestEth.v1.GetOpenedBoxProfitStatsReply_Item'
+        api.requestEth.v1.GetOpenedBoxProfitStatsReply_Item:
+            type: object
+            properties:
+                tokenId:
+                    type: string
+                userAddr:
+                    type: string
+                reward:
+                    type: string
+                usdtPaid:
+                    type: string
+                blockTime:
+                    type: string
+        api.requestEth.v1.GetReservesReply:
+            type: object
+            properties:
+                reservesOne:
+                    type: string
+                reservesTwo:
+                    type: string
+        api.requestEth.v1.GetRewardListReply:
+            type: object
+            properties:
+                count:
+                    type: string
+                list:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/api.requestEth.v1.GetRewardListReply_List'
+        api.requestEth.v1.GetRewardListReply_List:
+            type: object
+            properties:
+                user:
+                    type: string
+                reason:
+                    type: string
+                amount:
+                    type: number
+                    format: double
+                blockTime:
+                    type: string
+        api.requestEth.v1.GetSellBoxListReply:
+            type: object
+            properties:
+                count:
+                    type: string
+                list:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/api.requestEth.v1.GetSellBoxListReply_List'
+        api.requestEth.v1.GetSellBoxListReply_List:
+            type: object
+            properties:
+                tokenId:
+                    type: string
+                priceUsdt:
+                    type: number
+                    format: double
+                feeUsdt:
+                    type: number
+                    format: double
+                feeB:
+                    type: number
+                    format: double
+                blockTime:
+                    type: string
+        api.requestEth.v1.GetSellEventReply:
+            type: object
+            properties: {}
+        api.requestEth.v1.GetUserLpReply:
+            type: object
+            properties:
+                lpAmount:
+                    type: string
+                lpAmountTotal:
+                    type: string
+        api.requestEth.v1.GetUserREventReply:
+            type: object
+            properties: {}
+        api.requestEth.v1.ReferralListPendingReply:
+            type: object
+            properties:
+                total:
+                    type: string
+                list:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/api.requestEth.v1.ReferralPendingItem'
+        api.requestEth.v1.ReferralPayoutReply:
+            type: object
+            properties:
+                paidCount:
+                    type: integer
+                    format: int32
+                txHashes:
+                    type: array
+                    items:
+                        type: string
+                err:
+                    type: string
+        api.requestEth.v1.ReferralPayoutRequest_SendBody:
+            type: object
+            properties:
+                ids:
+                    type: array
+                    items:
+                        type: string
+                usdtAddress:
+                    type: string
+                rpcUrl:
+                    type: string
+        api.requestEth.v1.ReferralPendingItem:
+            type: object
+            properties:
+                id:
+                    type: string
+                mintedId:
+                    type: string
+                purchaseId:
+                    type: string
+                tokenId:
+                    type: string
+                minter:
+                    type: string
+                seller:
+                    type: string
+                buyer:
+                    type: string
+                price:
+                    type: string
+                addrB:
+                    type: string
+                addrC:
+                    type: string
+                amountToB:
+                    type: string
+                amountToC:
+                    type: string
+                amountToProject:
+                    type: string
+                reason:
+                    type: integer
+                    format: uint32
+                paidTxHash:
+                    type: string
+        api.requestEth.v1.RemoveLiquidityReply:
+            type: object
+            properties:
+                res:
+                    type: string
+        api.requestEth.v1.RemoveLiquidityRequest_SendBody:
+            type: object
+            properties:
+                orderId:
+                    type: string
+                user:
+                    type: string
+                liquidityAmount:
+                    type: string
+        api.requestEth.v1.SendAICATReply:
+            type: object
+            properties:
+                res:
+                    type: string
+        api.requestEth.v1.SendAICATRequest_SendBody:
+            type: object
+            properties: {}
+        api.requestEth.v1.SendTransactionEthReply:
+            type: object
+            properties:
+                tx:
+                    type: string
+                err:
+                    type: string
+        api.requestEth.v1.SendTransactionEthRequest_SendBody:
+            type: object
+            properties:
+                privateKey:
+                    type: string
+                toAddr:
+                    type: string
+                amount:
+                    type: string
+        api.requestEth.v1.SendTransactionReply:
+            type: object
+            properties:
+                tx:
+                    type: string
+                err:
+                    type: string
+        api.requestEth.v1.SendTransactionRequest_SendBody:
+            type: object
+            properties:
+                privateKey:
+                    type: string
+                toAddr:
+                    type: string
+                token:
+                    type: string
+                amount:
+                    type: string
+        api.requestEth.v1.SetRewardReply:
+            type: object
+            properties:
+                res:
+                    type: string
+        api.requestEth.v1.SetRewardRequest_SendBody:
+            type: object
+            properties:
+                tokenId:
+                    type: string
+                reward:
+                    type: string
+        api.requestEth.v1.TokenBalanceReply:
+            type: object
+            properties:
+                balance:
+                    type: string
+                err:
+                    type: string
+        api.requestEth.v1.TransactionReply:
+            type: object
+            properties:
+                status:
+                    type: string
+        api.requestEth.v1.UpdateBoxReply:
+            type: object
+            properties: {}
+        api.requestEth.v1.VerifySigReply:
+            type: object
+            properties:
+                res:
+                    type: boolean
+                address:
+                    type: string
+        api.requestEth.v1.WithdrawAICATReply:
+            type: object
+            properties:
+                res:
+                    type: string
+        api.requestEth.v1.WithdrawAICATRequest_SendBody:
+            type: object
+            properties:
+                token:
+                    type: string
+                amount:
+                    type: string
+                address:
+                    type: string
+                contract:
+                    type: string
+tags:
+    - name: Transaction
